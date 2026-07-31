@@ -7,16 +7,12 @@ const faqs = [
   {
     question: '没有国外手机号，怎么注册海外平台？',
     answer: '这是很多新手的痛点！其实大部分平台（Shopee、速卖通）可以直接用中国手机号注册。只有 TikTok Shop 美区/英区、Facebook 广告账户等才需要国外手机号。获取国外手机号有三种方式：① 虚拟接码平台（SMS-Activate 等，1-5元/次，适合一次性验证）；② 实体 SIM 卡/eSIM（Ultra Mobile、giffgaff 等，50-300元/月，长期稳定）；③ 免费 VoIP（Google Voice、TextNow，需维护保号）。',
-    hasLink: true,
-    linkUrl: '/phone',
-    linkText: '查看手机号获取指南',
+    hasLink: true, linkUrl: '/phone', linkText: '查看手机号获取指南',
   },
   {
     question: '国内无法访问国外网络，还能做跨境电商吗？',
     answer: '完全可以！首先要明确：不是所有跨境电商操作都需要"特殊网络"。Shopee、速卖通、Amazon 卖家后台在国内都能正常访问。只有在使用 Google Trends、Facebook 广告、TikTok Shop 部分功能时才需要。我们有专门的《跨境电商网络环境配置指南》，详细介绍了三种可行方案（企业专线、云服务器自建、商业代理）和具体服务商推荐，点击查看 →',
-    hasLink: true,
-    linkUrl: '/network',
-    linkText: '查看网络配置指南',
+    hasLink: true, linkUrl: '/network', linkText: '查看网络配置指南',
   },
   {
     question: '做跨境电商需要会英语吗？',
@@ -60,28 +56,48 @@ export default function FAQ() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 text-primary border-primary/30">常见问题</Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">新手最常问的问题</h2>
-          <p className="text-lg text-muted-foreground">你疑惑的，这里都有答案</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+            新手最常问的问题
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            你疑惑的，这里都有答案
+          </p>
         </div>
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
-            <Card key={index} className={`overflow-hidden transition-all duration-200 ${openIndex === index ? 'ring-1 ring-primary/20' : ''}`}>
+            <Card
+              key={index}
+              className={`overflow-hidden transition-all duration-200 ${openIndex === index ? 'ring-1 ring-primary/20' : ''}`}
+            >
               <button
                 className="w-full flex items-center justify-between p-5 text-left hover:bg-muted/30 transition-colors"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex items-center gap-3 pr-4">
                   <HelpCircle className={`h-5 w-5 shrink-0 ${openIndex === index ? 'text-primary' : 'text-muted-foreground'}`} />
-                  <span className={`font-medium ${openIndex === index ? 'text-primary' : 'text-foreground'}`}>{faq.question}</span>
+                  <span className={`font-medium ${openIndex === index ? 'text-primary' : 'text-foreground'}`}>
+                    {faq.question}
+                  </span>
                 </div>
-                <ChevronDown className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 ${openIndex === index ? 'rotate-180 text-primary' : ''}`} />
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                    openIndex === index ? 'rotate-180 text-primary' : ''
+                  }`}
+                />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
                 <div className="px-5 pb-5 pl-[3.25rem]">
                   <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                   {(faq as any).hasLink && (
-                    <a href={(faq as any).linkUrl} className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                    <a
+                      href={(faq as any).linkUrl}
+                      className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
                       {(faq as any).linkText}
                       <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
