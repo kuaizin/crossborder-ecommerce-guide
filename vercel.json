@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/network", "destination": "/index.html" },
+    { "source": "/phone", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
